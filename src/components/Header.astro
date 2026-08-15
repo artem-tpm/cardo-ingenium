@@ -1,27 +1,28 @@
 ---
 const links = [
+  { href: "#how-we-work", label: "How We Work" },
   { href: "#services", label: "Services" },
   { href: "#team", label: "Team" },
   { href: "#contact", label: "Contact" },
 ];
 ---
 
-<header class="fixed top-0 inset-x-0 z-50 border-b border-[#dedac9] bg-white/85 backdrop-blur-md">
+<header class="fixed top-0 inset-x-0 z-50 border-b border-[#dde1e6] bg-white/85 backdrop-blur-md">
   <nav class="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
-    <a href="#top" class="font-serif-heading text-lg tracking-tight text-[#211f1a]">
-      Cardo <span class="text-[#2f4f43]">Ingenium</span>
+    <a href="#top" class="font-serif-heading text-lg tracking-tight text-[#16202b]">
+      Cardo <span class="text-[#1c3d3a]">Ingenium</span>
     </a>
-    <ul class="hidden sm:flex items-center gap-8 text-sm text-[#63604f]">
+    <ul class="hidden sm:flex items-center gap-8 text-sm text-[#59636f]">
       {links.map((link) => (
         <li>
-          <a href={link.href} class="hover:text-[#211f1a] transition-colors">{link.label}</a>
+          <a href={link.href} class="hover:text-[#16202b] transition-colors">{link.label}</a>
         </li>
       ))}
     </ul>
     <div class="hidden sm:flex items-center">
       <a
         href="#contact"
-        class="btn-shine inline-flex items-center gap-2 rounded-md bg-[#2f4f43] px-4 py-2 text-sm font-medium text-white hover:bg-[#254036] transition-colors"
+        class="inline-flex items-center gap-2 rounded-sm bg-[#1c3d3a] px-4 py-2 text-sm font-medium text-white hover:bg-[#142b29] transition-colors"
       >
         Start a conversation
       </a>
@@ -31,7 +32,7 @@ const links = [
       type="button"
       aria-label="Toggle menu"
       aria-expanded="false"
-      class="sm:hidden inline-flex items-center justify-center w-9 h-9 -mr-2 text-[#211f1a]"
+      class="sm:hidden inline-flex items-center justify-center w-9 h-9 -mr-2 text-[#16202b]"
     >
       <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -44,18 +45,18 @@ const links = [
       </svg>
     </button>
   </nav>
-  <div id="mobile-menu" class="hidden sm:hidden border-t border-[#dedac9] bg-white/95 backdrop-blur-md">
-    <ul class="flex flex-col px-6 py-4 text-sm text-[#63604f]">
+  <div id="mobile-menu" class="hidden sm:hidden border-t border-[#dde1e6] bg-white/95 backdrop-blur-md">
+    <ul class="flex flex-col px-6 py-4 text-sm text-[#59636f]">
       {links.map((link) => (
         <li>
-          <a href={link.href} class="block py-3 hover:text-[#211f1a] transition-colors">{link.label}</a>
+          <a href={link.href} class="block py-3 hover:text-[#16202b] transition-colors">{link.label}</a>
         </li>
       ))}
     </ul>
     <div class="px-6 pb-6">
       <a
         href="#contact"
-        class="flex items-center justify-center rounded-md bg-[#2f4f43] px-4 py-3 text-sm font-medium text-white hover:bg-[#254036] transition-colors"
+        class="flex items-center justify-center rounded-sm bg-[#1c3d3a] px-4 py-3 text-sm font-medium text-white hover:bg-[#142b29] transition-colors"
       >
         Start a conversation
       </a>

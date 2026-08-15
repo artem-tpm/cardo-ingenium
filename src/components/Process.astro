@@ -1,0 +1,50 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Discover",
+    description:
+      "We start by understanding the problem, the current system, and the constraints you're actually operating under — before proposing anything.",
+  },
+  {
+    number: "02",
+    title: "Assess",
+    description:
+      "An independent evaluation across the areas that matter for the engagement — architecture, product, delivery process, or compliance risk.",
+  },
+  {
+    number: "03",
+    title: "Recommend",
+    description:
+      "A scoped, prioritized plan tied to your constraints — not a slide deck of generic best practices.",
+  },
+  {
+    number: "04",
+    title: "Support",
+    description:
+      "We stay engaged through implementation, or hand off with documentation your team can run with on its own.",
+  },
+];
+---
+
+<section id="how-we-work" class="relative px-6 py-24 border-b border-[#dde1e6]">
+  <div class="mx-auto max-w-6xl">
+    <div class="reveal max-w-2xl mb-16">
+      <h2 class="eyebrow text-xs font-semibold uppercase text-[#8a6d3b] mb-3">How We Work</h2>
+      <h3 class="font-serif-heading text-2xl sm:text-4xl text-[#16202b]">A structured engagement, not a black box.</h3>
+      <p class="mt-4 text-[#59636f]">
+        Every engagement follows the same four stages, regardless of which
+        services it draws on.
+      </p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+      {steps.map((step) => (
+        <div class="reveal">
+          <p class="step-index">{step.number}</p>
+          <h4 class="font-serif-heading text-lg text-[#16202b] mt-3 mb-2">{step.title}</h4>
+          <p class="text-sm text-[#59636f] leading-relaxed">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
