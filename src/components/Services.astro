@@ -1,34 +1,44 @@
 ---
 const services = [
   {
-    title: "Technical Product Strategy",
+    title: "Mobile Application Architecture",
     description:
-      "Roadmap definition, stakeholder alignment, and turning ambiguous business goals into a scoped, sequenced plan engineering teams can execute against.",
+      "Structuring iOS and Android codebases to scale past MVP — module boundaries, state management, and platform-specific trade-offs that get expensive to unwind once a team has grown around them.",
   },
   {
-    title: "Software & Systems Architecture",
+    title: "2D Game Engines",
     description:
-      "System design and technology decisions for new builds or platforms under strain — evaluating trade-offs before they become expensive to reverse.",
+      "Engine and framework selection for 2D titles, plus the architecture around it — asset pipelines, save systems, and performance budgets that hold up as scope grows.",
   },
   {
-    title: "Delivery & Program Management",
+    title: "Legal & Regulatory Compliance",
     description:
-      "Getting multi-team, multi-stakeholder programs unstuck — agile process, cross-team coordination, and predictable delivery against acceptance criteria.",
+      "App store policy, cookie and consent requirements, and data protection law — the technical and product work behind consent flows, privacy notices, and store review criteria, not just the paperwork.",
+  },
+  {
+    title: "CRM Systems Development",
+    description:
+      "Design and development of CRM and customer-facing back-office systems — data models, configuration architecture, and the tooling that lets operational teams manage customer relationships safely.",
+  },
+  {
+    title: "Live-Ops & Back-Office Tooling",
+    description:
+      "Operational tooling for live products — configuration systems, admin panels, and workflows that let live-ops teams ship changes without engineering in the loop, while keeping production safe.",
+  },
+  {
+    title: "Technical Product Strategy & Delivery",
+    description:
+      "Roadmap definition, stakeholder alignment, and delivery management — turning ambiguous business goals into a scoped, sequenced plan, then running the agile process that gets it shipped.",
+  },
+  {
+    title: "AI-Assisted Prototyping & Tooling",
+    description:
+      "Practical adoption of AI tools into product and engineering workflows — using AI to compress concept-to-prototype timelines, and judgment on which AI capability claims actually hold up in production.",
   },
   {
     title: "Technical Due Diligence",
     description:
-      "Independent assessment of a codebase, architecture, or engineering org — for investors, acquirers, or leadership teams inheriting an unfamiliar system.",
-  },
-  {
-    title: "AI-Assisted Product Development",
-    description:
-      "Practical adoption of AI tooling into product and engineering workflows — from prototyping speed-ups to judgment on what AI capability claims actually hold up.",
-  },
-  {
-    title: "Compliance & Risk Alignment",
-    description:
-      "Bridging product and legal — translating regulatory requirements (data protection, platform policy, GDPR) into concrete engineering specs before they become risk.",
+      "Independent assessment of a codebase, architecture, or engineering organization — for investors, acquirers, or leadership teams inheriting a system they didn't build.",
   },
 ];
 ---
@@ -43,10 +53,10 @@ const services = [
         applied together rather than handed off between separate consultants.
       </p>
     </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {services.map((service) => (
-        <div class="reveal card-elevate card-sheen spotlight rounded-2xl border border-[#dedac9] bg-white p-8">
-          <h4 class="font-serif-heading text-lg text-[#211f1a] mb-3">{service.title}</h4>
+        <div class="reveal card-elevate card-sheen spotlight rounded-2xl border border-[#dedac9] bg-white p-6">
+          <h4 class="font-serif-heading text-base text-[#211f1a] mb-3">{service.title}</h4>
           <p class="text-sm text-[#63604f] leading-relaxed">{service.description}</p>
         </div>
       ))}
