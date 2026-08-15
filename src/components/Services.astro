@@ -1,0 +1,55 @@
+---
+const services = [
+  {
+    title: "Technical Product Strategy",
+    description:
+      "Roadmap definition, stakeholder alignment, and turning ambiguous business goals into a scoped, sequenced plan engineering teams can execute against.",
+  },
+  {
+    title: "Software & Systems Architecture",
+    description:
+      "System design and technology decisions for new builds or platforms under strain — evaluating trade-offs before they become expensive to reverse.",
+  },
+  {
+    title: "Delivery & Program Management",
+    description:
+      "Getting multi-team, multi-stakeholder programs unstuck — agile process, cross-team coordination, and predictable delivery against acceptance criteria.",
+  },
+  {
+    title: "Technical Due Diligence",
+    description:
+      "Independent assessment of a codebase, architecture, or engineering org — for investors, acquirers, or leadership teams inheriting an unfamiliar system.",
+  },
+  {
+    title: "AI-Assisted Product Development",
+    description:
+      "Practical adoption of AI tooling into product and engineering workflows — from prototyping speed-ups to judgment on what AI capability claims actually hold up.",
+  },
+  {
+    title: "Compliance & Risk Alignment",
+    description:
+      "Bridging product and legal — translating regulatory requirements (data protection, platform policy, GDPR) into concrete engineering specs before they become risk.",
+  },
+];
+---
+
+<section id="services" class="relative px-6 py-28">
+  <div class="mx-auto max-w-6xl">
+    <div class="reveal text-center max-w-2xl mx-auto mb-16">
+      <h2 class="eyebrow text-xs font-semibold uppercase text-[#a1652f] mb-3">Services</h2>
+      <h3 class="font-serif-heading text-2xl sm:text-4xl text-[#211f1a]">Where we advise.</h3>
+      <p class="mt-4 text-[#63604f]">
+        Two disciplines, one engagement — product judgment and architectural rigor,
+        applied together rather than handed off between separate consultants.
+      </p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service) => (
+        <div class="reveal card-elevate card-sheen spotlight rounded-2xl border border-[#dedac9] bg-white p-8">
+          <h4 class="font-serif-heading text-lg text-[#211f1a] mb-3">{service.title}</h4>
+          <p class="text-sm text-[#63604f] leading-relaxed">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

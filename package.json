@@ -1,0 +1,28 @@
+{
+  "name": "cardo-ingenium",
+  "version": "1.0.0",
+  "description": "Cardo Ingenium — technical product & software architecture consultancy",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artem-tpm/cardo-ingenium.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artem-tpm/cardo-ingenium/issues"
+  },
+  "homepage": "https://github.com/artem-tpm/cardo-ingenium#readme",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.2.1",
+    "tailwindcss": "^4.3.3"
+  }
+}

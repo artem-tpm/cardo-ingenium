@@ -1,0 +1,52 @@
+---
+const email = "artem_tpm@protonmail.com";
+---
+
+<section id="contact" class="relative px-6 py-28 overflow-hidden">
+  <div class="orb-field">
+    <span class="orb orb-1" style="opacity:0.6"></span>
+    <span class="orb orb-2" style="opacity:0.6"></span>
+  </div>
+  <div class="reveal card-sheen spotlight mx-auto max-w-6xl rounded-2xl border border-[#dedac9] bg-white px-8 py-16 text-center sm:px-16 shadow-[0_30px_60px_-30px_rgba(33,31,26,0.18)]">
+    <h2 class="eyebrow text-xs font-semibold uppercase text-[#a1652f] mb-3">Contact</h2>
+    <h3 class="font-serif-heading text-2xl sm:text-4xl text-[#211f1a]">Start a conversation.</h3>
+    <p class="mt-4 text-[#63604f] max-w-xl mx-auto">
+      Tell us about the problem you're trying to solve — a system that needs
+      rethinking, a delivery program that's stalled, or a technical decision you
+      want a second, independent opinion on.
+    </p>
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <a
+        href={`mailto:${email}`}
+        class="btn-shine rounded-md bg-[#2f4f43] text-white px-6 py-3 text-sm font-medium shadow-[0_12px_24px_-10px_rgba(47,79,67,0.55)] hover:bg-[#254036] transition-colors"
+      >
+        Email us
+      </a>
+      <button
+        id="copy-email"
+        type="button"
+        data-email={email}
+        class="rounded-md border border-[#dedac9] px-6 py-3 text-sm font-medium text-[#211f1a] hover:border-[#2f4f43] hover:text-[#2f4f43] transition-colors"
+      >
+        Copy email
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const button = document.getElementById("copy-email");
+  button?.addEventListener("click", async () => {
+    const email = button.getAttribute("data-email") ?? "";
+    try {
+      await navigator.clipboard.writeText(email);
+      const original = button.textContent;
+      button.textContent = "Copied!";
+      setTimeout(() => {
+        button.textContent = original;
+      }, 1500);
+    } catch {
+      // Clipboard API unavailable — the mailto link above still works.
+    }
+  });
+</script>

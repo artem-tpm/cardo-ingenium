@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://artem-tpm.github.io/cardo-ingenium/sitemap-index.xml

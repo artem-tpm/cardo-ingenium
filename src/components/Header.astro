@@ -1,0 +1,94 @@
+---
+const links = [
+  { href: "#services", label: "Services" },
+  { href: "#team", label: "Team" },
+  { href: "#contact", label: "Contact" },
+];
+---
+
+<header class="fixed top-0 inset-x-0 z-50 border-b border-[#dedac9] bg-white/85 backdrop-blur-md">
+  <nav class="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
+    <a href="#top" class="font-serif-heading text-lg tracking-tight text-[#211f1a]">
+      Cardo <span class="text-[#2f4f43]">Ingenium</span>
+    </a>
+    <ul class="hidden sm:flex items-center gap-8 text-sm text-[#63604f]">
+      {links.map((link) => (
+        <li>
+          <a href={link.href} class="hover:text-[#211f1a] transition-colors">{link.label}</a>
+        </li>
+      ))}
+    </ul>
+    <div class="hidden sm:flex items-center">
+      <a
+        href="#contact"
+        class="btn-shine inline-flex items-center gap-2 rounded-md bg-[#2f4f43] px-4 py-2 text-sm font-medium text-white hover:bg-[#254036] transition-colors"
+      >
+        Start a conversation
+      </a>
+    </div>
+    <button
+      id="menu-toggle"
+      type="button"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      class="sm:hidden inline-flex items-center justify-center w-9 h-9 -mr-2 text-[#211f1a]"
+    >
+      <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden">
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+      </svg>
+    </button>
+  </nav>
+  <div id="mobile-menu" class="hidden sm:hidden border-t border-[#dedac9] bg-white/95 backdrop-blur-md">
+    <ul class="flex flex-col px-6 py-4 text-sm text-[#63604f]">
+      {links.map((link) => (
+        <li>
+          <a href={link.href} class="block py-3 hover:text-[#211f1a] transition-colors">{link.label}</a>
+        </li>
+      ))}
+    </ul>
+    <div class="px-6 pb-6">
+      <a
+        href="#contact"
+        class="flex items-center justify-center rounded-md bg-[#2f4f43] px-4 py-3 text-sm font-medium text-white hover:bg-[#254036] transition-colors"
+      >
+        Start a conversation
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+
+  const closeMenu = () => {
+    menu?.classList.add("hidden");
+    iconOpen?.classList.remove("hidden");
+    iconClose?.classList.add("hidden");
+    toggle?.setAttribute("aria-expanded", "false");
+  };
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = !menu?.classList.contains("hidden");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      menu?.classList.remove("hidden");
+      iconOpen?.classList.add("hidden");
+      iconClose?.classList.remove("hidden");
+      toggle?.setAttribute("aria-expanded", "true");
+    }
+  });
+
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+</script>
