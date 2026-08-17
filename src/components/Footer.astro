@@ -2,8 +2,16 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="px-6 py-8 bg-[#16202b]">
-  <div class="mx-auto max-w-6xl flex items-center justify-center text-center text-sm text-[#a9b2bc]">
-    <span>&copy; {year} Cardo Ingenium</span>
+<footer class="px-6 py-14 bg-[#16202b]">
+  <div class="mx-auto max-w-6xl flex flex-col items-center gap-4 text-center">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect x="3" y="3" width="26" height="26" stroke="#fdfdfc" stroke-width="1.5"/>
+      <line x1="13" y1="3" x2="13" y2="29" stroke="#c9a86a" stroke-width="1.5"/>
+      <line x1="3" y1="20" x2="29" y2="20" stroke="#fdfdfc" stroke-width="1.5"/>
+    </svg>
+    <span class="font-serif-heading tracking-[0.2em] uppercase text-sm text-white">Cardo Ingenium</span>
+    <span class="w-10 h-px bg-[#c9a86a]"></span>
+    <span class="text-[10px] tracking-[0.28em] uppercase text-[#c9a86a]">Est. Advisory</span>
+    <span class="mt-6 text-xs text-[#a9b2bc]">&copy; {year} Cardo Ingenium</span>
   </div>
 </footer>
