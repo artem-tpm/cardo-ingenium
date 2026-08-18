@@ -24,6 +24,13 @@ body {
   font-family: var(--font-sans);
 }
 
+body, a, button, p, h1, h2, h3, h4, h5, h6, span, li, summary {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
 ::selection {
   background: rgba(28, 61, 58, 0.14);
   color: var(--color-accent);
