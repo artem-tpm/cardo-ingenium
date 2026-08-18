@@ -1,3 +1,7 @@
+---
+const email = "cardo.ingenium@protonmail.com";
+---
+
 <section id="contact" class="relative px-6 py-28 bg-[#16202b]">
   <div class="reveal mx-auto max-w-3xl text-center">
     <h2 class="eyebrow text-xs font-semibold uppercase text-[#c9a86a] mb-3">Contact</h2>
@@ -7,6 +11,39 @@
       rethinking, a delivery program that's stalled, or a technical decision you
       want a second, independent opinion on.
     </p>
-    <p class="mt-8 text-sm text-[#a9b2bc]">Contact details coming soon.</p>
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <a
+        href={`mailto:${email}`}
+        class="inline-flex items-center gap-2 rounded-sm bg-[#c9a86a] px-6 py-3 text-sm font-medium text-[#16202b] hover:bg-[#d9bd85] transition-colors"
+      >
+        Email us
+      </a>
+      <button
+        id="copy-email"
+        type="button"
+        data-email={email}
+        class="rounded-sm border border-white/20 px-6 py-3 text-sm font-medium text-white hover:border-[#c9a86a] hover:text-[#c9a86a] transition-colors"
+      >
+        Copy email
+      </button>
+    </div>
+    <p class="mt-6 text-sm text-[#a9b2bc]">{email}</p>
   </div>
 </section>
+
+<script>
+  const button = document.getElementById("copy-email");
+  button?.addEventListener("click", async () => {
+    const email = button.getAttribute("data-email") ?? "";
+    try {
+      await navigator.clipboard.writeText(email);
+      const original = button.textContent;
+      button.textContent = "Copied!";
+      setTimeout(() => {
+        button.textContent = original;
+      }, 1500);
+    } catch {
+      // Clipboard API unavailable — the mailto link above still works.
+    }
+  });
+</script>
