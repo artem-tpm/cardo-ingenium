@@ -5,12 +5,25 @@ const team = [
     tag: "Product & Delivery",
     bio:
       "20+ years in IT spanning network engineering to delivery management at a global software company. Owns the product side of an engagement — scoping, stakeholder alignment, and delivery against acceptance criteria.",
+    highlights: [
+      "Owned a back-office CRM platform for a global gaming organization from initial build through its evolution into a distributed model adopted by 10+ independent studios",
+      "Deep experience in live-ops and back-office tooling for customer-facing products",
+      "Runs agile delivery and stakeholder alignment across cross-functional, multi-region teams",
+      "Working fluency in data protection, GDPR, and platform compliance (Apple App Store / Google Play) from hands-on product-legal collaboration",
+    ],
   },
   {
     role: "Software Architect",
     tag: "Architecture & Engineering",
     bio:
       "10+ years as a software architect and 20+ years writing production code, across a wide portfolio of technology stacks. Owns the technical side — system design, architectural trade-offs, and engineering feasibility.",
+    highlights: [
+      "Works across the toolset expected of a high-caliber software architect, not narrowly specialized",
+      "Deep knowledge of mobile development, and not limited to it",
+      "Deep knowledge of core mobile game engines",
+      "Deep knowledge of SDK integration and evaluation",
+      "Deep knowledge of performance and stability tuning",
+    ],
   },
 ];
 ---
@@ -31,6 +44,14 @@ const team = [
           <p class="eyebrow text-xs font-semibold uppercase text-[#8a6d3b] mb-2">{member.tag}</p>
           <h4 class="font-serif-heading text-xl text-[#16202b] mb-3">{member.role}</h4>
           <p class="text-sm text-[#59636f] leading-relaxed">{member.bio}</p>
+          <ul class="mt-5 flex flex-col gap-2.5 border-t border-[#dde1e6] pt-5">
+            {member.highlights.map((item) => (
+              <li class="flex items-start gap-2.5 text-sm text-[#59636f] leading-relaxed">
+                <span class="mt-2 h-1 w-1 shrink-0 bg-[#c9a86a]"></span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>
