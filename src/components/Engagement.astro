@@ -1,0 +1,41 @@
+---
+const models = [
+  {
+    title: "Scoped Project",
+    price: "$150–250/hr, or a fixed project fee",
+    description:
+      "A defined deliverable — an architecture review, technical due diligence, a specific system design or migration plan — with scope and outcome agreed before work starts.",
+    note: "Specialist due diligence engagements run toward the higher end of the range.",
+  },
+  {
+    title: "Embedded Advisory",
+    price: "From $4,000/month",
+    description:
+      "Ongoing involvement in delivery, architecture decisions, or program management — as much or as little as the engagement needs, for as long as you need it.",
+    note: "Scoped to the level of involvement required — reviewed monthly, not locked into a long contract.",
+  },
+];
+---
+
+<section id="pricing" class="relative px-6 py-24 border-b border-[#dde1e6]">
+  <div class="mx-auto max-w-6xl">
+    <div class="reveal max-w-2xl mb-16">
+      <h2 class="eyebrow text-xs font-semibold uppercase text-[#8a6d3b] mb-3">Engagement Models</h2>
+      <h3 class="font-serif-heading text-2xl sm:text-4xl text-[#16202b]">Two ways to work with us.</h3>
+      <p class="mt-4 text-[#59636f]">
+        Every engagement starts with a free discovery call to confirm scope and the
+        right model — no obligation, no generic proposal.
+      </p>
+    </div>
+    <div class="grid sm:grid-cols-2 border-t border-l border-[#dde1e6]">
+      {models.map((model) => (
+        <div class="reveal card-elevate border-r border-b border-[#dde1e6] bg-white p-8">
+          <h4 class="font-serif-heading text-xl text-[#16202b] mb-2">{model.title}</h4>
+          <p class="text-sm font-medium text-[#1c3d3a] mb-4">{model.price}</p>
+          <p class="text-sm text-[#59636f] leading-relaxed">{model.description}</p>
+          <p class="mt-4 text-xs text-[#8a6d3b]">{model.note}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
