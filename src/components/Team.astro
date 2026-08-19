@@ -1,45 +1,24 @@
 ---
-const team = [
-  {
-    role: "Technical Product Manager",
-    tag: "Product & Delivery",
-    bio:
-      "20+ years in IT spanning network engineering to delivery management at a global software company. Owns the product side of an engagement — scoping, stakeholder alignment, and delivery against acceptance criteria.",
-    highlights: [
-      "Owned a back-office CRM platform for a global gaming organization from initial build through its evolution into a distributed model adopted by 10+ independent studios",
-      "Deep experience in live-ops and back-office tooling for customer-facing products",
-      "Runs agile delivery and stakeholder alignment across cross-functional, multi-region teams",
-      "Working fluency in data protection, GDPR, and platform compliance (Apple App Store / Google Play) from hands-on product-legal collaboration",
-    ],
-  },
-  {
-    role: "Software Architect",
-    tag: "Architecture & Engineering",
-    bio:
-      "10+ years as a software architect and 20+ years writing production code, across a wide portfolio of technology stacks. Owns the technical side — system design, architectural trade-offs, and engineering feasibility.",
-    highlights: [
-      "Works across the toolset expected of a high-caliber software architect — broad by design, not narrowly specialized",
-      "Strong grounding in mobile development, with range well beyond it",
-      "Fluent in the internals of core mobile game engines",
-      "Extensive experience integrating and evaluating third-party SDKs",
-      "A specialist eye for performance and stability tuning",
-    ],
-  },
-];
+import { useTranslations } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section id="team" class="relative px-6 py-24 bg-[#f5f6f7] border-y border-[#dde1e6]">
   <div class="mx-auto max-w-6xl">
     <div class="reveal max-w-2xl mb-16">
-      <h2 class="eyebrow text-xs font-semibold uppercase text-[#8a6d3b] mb-3">Team</h2>
-      <h3 class="font-serif-heading text-2xl sm:text-4xl text-[#16202b]">Who you'll work with.</h3>
-      <p class="mt-4 text-[#59636f]">
-        A two-person practice, by design — every engagement gets both the product
-        and architecture perspective directly, not filtered through account layers.
-      </p>
+      <h2 class="eyebrow text-xs font-semibold uppercase text-[#8a6d3b] mb-3">{t.team.eyebrow}</h2>
+      <h3 class="font-serif-heading text-2xl sm:text-4xl text-[#16202b]">{t.team.h2}</h3>
+      <p class="mt-4 text-[#59636f]">{t.team.sub}</p>
     </div>
     <div class="grid sm:grid-cols-2 gap-px bg-[#dde1e6]">
-      {team.map((member) => (
+      {t.team.members.map((member) => (
         <div class="reveal bg-white p-8">
           <p class="eyebrow text-xs font-semibold uppercase text-[#8a6d3b] mb-2">{member.tag}</p>
           <h4 class="font-serif-heading text-xl text-[#16202b] mb-3">{member.role}</h4>

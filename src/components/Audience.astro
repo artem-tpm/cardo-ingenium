@@ -1,35 +1,24 @@
 ---
-const segments = [
-  {
-    title: "Small Teams",
-    description:
-      "Lean teams making architecture, product, or delivery decisions without the bandwidth to get an independent second opinion in-house.",
-  },
-  {
-    title: "Startups",
-    description:
-      "Early-stage products where the technical, legal, and compliance choices made now determine how expensive change is later.",
-  },
-  {
-    title: "Enterprises",
-    description:
-      "Established organizations that need independent judgment on a specific system, program, or acquisition — without expanding permanent headcount.",
-  },
-];
+import { useTranslations } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section class="relative px-6 py-24 border-b border-[#dde1e6]">
   <div class="mx-auto max-w-6xl">
     <div class="reveal max-w-2xl mb-16">
-      <h2 class="eyebrow text-xs font-semibold uppercase text-[#8a6d3b] mb-3">Who We Work With</h2>
-      <h3 class="font-serif-heading text-2xl sm:text-4xl text-[#16202b]">Sized to the engagement, not the other way around.</h3>
-      <p class="mt-4 text-[#59636f]">
-        The same combination of product judgment and architectural rigor,
-        scoped to fit a two-person team or a program with a dozen stakeholders.
-      </p>
+      <h2 class="eyebrow text-xs font-semibold uppercase text-[#8a6d3b] mb-3">{t.audience.eyebrow}</h2>
+      <h3 class="font-serif-heading text-2xl sm:text-4xl text-[#16202b]">{t.audience.h2}</h3>
+      <p class="mt-4 text-[#59636f]">{t.audience.sub}</p>
     </div>
     <div class="grid sm:grid-cols-3 border-t border-l border-[#dde1e6]">
-      {segments.map((segment) => (
+      {t.audience.segments.map((segment) => (
         <div class="reveal border-r border-b border-[#dde1e6] bg-white p-8">
           <h4 class="font-serif-heading text-lg text-[#16202b] mb-3">{segment.title}</h4>
           <p class="text-sm text-[#59636f] leading-relaxed">{segment.description}</p>

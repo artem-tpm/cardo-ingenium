@@ -1,30 +1,36 @@
 ---
+import { useTranslations } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 const email = "cardo.ingenium@protonmail.com";
 ---
 
 <section id="contact" class="relative px-6 py-28 bg-[#16202b]">
   <div class="reveal mx-auto max-w-3xl text-center">
-    <h2 class="eyebrow text-xs font-semibold uppercase text-[#c9a86a] mb-3">Contact</h2>
-    <h3 class="font-serif-heading text-2xl sm:text-4xl text-white">Start a conversation.</h3>
-    <p class="mt-4 text-[#a9b2bc] max-w-xl mx-auto">
-      Tell us about the problem you're trying to solve — a system that needs
-      rethinking, a delivery program that's stalled, or a technical decision you
-      want a second, independent opinion on.
-    </p>
+    <h2 class="eyebrow text-xs font-semibold uppercase text-[#c9a86a] mb-3">{t.contact.eyebrow}</h2>
+    <h3 class="font-serif-heading text-2xl sm:text-4xl text-white">{t.contact.h2}</h3>
+    <p class="mt-4 text-[#a9b2bc] max-w-xl mx-auto">{t.contact.sub}</p>
     <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
       <a
         href={`mailto:${email}`}
         class="inline-flex items-center gap-2 rounded-sm bg-[#c9a86a] px-6 py-3 text-sm font-medium text-[#16202b] hover:bg-[#d9bd85] transition-colors"
       >
-        Email us
+        {t.contact.emailBtn}
       </a>
       <button
         id="copy-email"
         type="button"
         data-email={email}
+        data-copied-text={t.contact.copiedText}
         class="rounded-sm border border-white/20 px-6 py-3 text-sm font-medium text-white hover:border-[#c9a86a] hover:text-[#c9a86a] transition-colors"
       >
-        Copy email
+        {t.contact.copyBtn}
       </button>
     </div>
     <p class="mt-6 text-sm text-[#a9b2bc]">{email}</p>
@@ -38,7 +44,8 @@ const email = "cardo.ingenium@protonmail.com";
     try {
       await navigator.clipboard.writeText(email);
       const original = button.textContent;
-      button.textContent = "Copied!";
+      const copiedText = button.getAttribute("data-copied-text") ?? "Copied!";
+      button.textContent = copiedText;
       setTimeout(() => {
         button.textContent = original;
       }, 1500);

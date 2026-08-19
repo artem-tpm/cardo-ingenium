@@ -1,4 +1,13 @@
 ---
+import { useTranslations } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 const year = new Date().getFullYear();
 ---
 
@@ -11,7 +20,7 @@ const year = new Date().getFullYear();
     </svg>
     <span class="font-serif-heading tracking-[0.2em] uppercase text-sm text-white">Cardo Ingenium</span>
     <span class="w-10 h-px bg-[#c9a86a]"></span>
-    <span class="text-[10px] tracking-[0.28em] uppercase text-[#c9a86a]">Est. Advisory</span>
+    <span class="text-[10px] tracking-[0.28em] uppercase text-[#c9a86a]">{t.footer.tagline}</span>
     <span class="mt-6 text-xs text-[#a9b2bc]">&copy; {year} Cardo Ingenium</span>
   </div>
 </footer>

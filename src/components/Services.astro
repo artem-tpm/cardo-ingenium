@@ -1,85 +1,24 @@
 ---
-const services = [
-  {
-    title: "Mobile Application Architecture",
-    description:
-      "Structuring iOS and Android codebases to scale past MVP — module boundaries, state management, and platform-specific trade-offs that get expensive to unwind once a team has grown around them.",
-  },
-  {
-    title: "2D Game Engines",
-    description:
-      "Engine and framework selection for 2D titles, plus the architecture around it — asset pipelines, save systems, and performance budgets that hold up as scope grows.",
-  },
-  {
-    title: "Legal & Regulatory Compliance",
-    description:
-      "App store policy, cookie and consent requirements, and data protection law — the technical and product work behind consent flows, privacy notices, and store review criteria, not just the paperwork.",
-  },
-  {
-    title: "CRM Systems Development",
-    description:
-      "Design and development of CRM and customer-facing back-office systems — data models, configuration architecture, and the tooling that lets operational teams manage customer relationships safely.",
-  },
-  {
-    title: "Live-Ops & Back-Office Tooling",
-    description:
-      "Operational tooling for live products — configuration systems, admin panels, and workflows that let live-ops teams ship changes without engineering in the loop, while keeping production safe.",
-  },
-  {
-    title: "Technical Product Strategy & Delivery",
-    description:
-      "Roadmap definition, stakeholder alignment, and delivery management — turning ambiguous business goals into a scoped, sequenced plan, then running the agile process that gets it shipped.",
-  },
-  {
-    title: "Project Management",
-    description:
-      "Running a defined initiative end to end — scope, timeline, budget, and risk tracked against a single set of deliverables, with a clear owner accountable for getting it over the line.",
-  },
-  {
-    title: "Program Management",
-    description:
-      "Coordinating multiple interdependent projects and teams toward a shared outcome — sequencing, cross-team dependencies, and reporting up to stakeholders who need the whole picture.",
-  },
-  {
-    title: "AI-Assisted Prototyping & Tooling",
-    description:
-      "Practical adoption of AI tools into product and engineering workflows — using AI to compress concept-to-prototype timelines, and judgment on which AI capability claims actually hold up in production.",
-  },
-  {
-    title: "AI Agents & Automation Flows",
-    description:
-      "Designing and building AI agents and automation pipelines that handle real, recurring workflows — not demos — with the guardrails and error handling that production use requires.",
-  },
-  {
-    title: "Personal & Team AI Assistants",
-    description:
-      "Assistants shaped around how a person or team actually works — wired into the tools and data they already use, rather than a generic chatbot bolted on top.",
-  },
-  {
-    title: "Unified Repository & Contribution Workflows",
-    description:
-      "Repository and branching strategy, code review process, and CI/CD setup that let a growing team contribute to a shared codebase without stepping on each other.",
-  },
-  {
-    title: "Technical Due Diligence",
-    description:
-      "Independent assessment of a codebase, architecture, or engineering organization — for investors, acquirers, or leadership teams inheriting a system they didn't build.",
-  },
-];
+import { useTranslations } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section id="services" class="relative px-6 py-24">
   <div class="mx-auto max-w-6xl">
     <div class="reveal max-w-2xl mb-16">
-      <h2 class="eyebrow text-xs font-semibold uppercase text-[#8a6d3b] mb-3">Services</h2>
-      <h3 class="font-serif-heading text-2xl sm:text-4xl text-[#16202b]">Where we advise.</h3>
-      <p class="mt-4 text-[#59636f]">
-        Two disciplines, one engagement — product judgment and architectural rigor,
-        applied together rather than handed off between separate consultants.
-      </p>
+      <h2 class="eyebrow text-xs font-semibold uppercase text-[#8a6d3b] mb-3">{t.services.eyebrow}</h2>
+      <h3 class="font-serif-heading text-2xl sm:text-4xl text-[#16202b]">{t.services.h2}</h3>
+      <p class="mt-4 text-[#59636f]">{t.services.sub}</p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-[#dde1e6]">
-      {services.map((service) => (
+      {t.services.items.map((service) => (
         <div class="reveal card-elevate border-r border-b border-[#dde1e6] bg-white p-6">
           <h4 class="font-serif-heading text-base text-[#16202b] mb-3">{service.title}</h4>
           <p class="text-sm text-[#59636f] leading-relaxed">{service.description}</p>

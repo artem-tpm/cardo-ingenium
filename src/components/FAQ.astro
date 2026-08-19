@@ -1,46 +1,23 @@
 ---
-const faqs = [
-  {
-    question: "How do engagements typically start?",
-    answer:
-      "With a free, no-obligation discovery call to understand the problem and confirm scope. If it's a fit, you get a written proposal with fixed scope and pricing before any billing starts.",
-  },
-  {
-    question: "How is pricing structured?",
-    answer:
-      "One of two models: a fixed price for a scoped project with defined deliverables, or an hourly rate for embedded, ongoing advisory work. Which model fits — and the actual number — is worked out together on the discovery call, based on scope and depth of involvement.",
-  },
-  {
-    question: "Do you sign NDAs, and can we see references or past clients?",
-    answer:
-      "Yes, NDAs are standard. We also operate under confidentiality obligations from our current employment, so we don't name clients, engagements, or specifics publicly without explicit permission — the same discretion we'd extend to you. We're happy to speak to relevant experience in more depth on a call.",
-  },
-  {
-    question: "What size of engagement do you take on?",
-    answer:
-      "Anything from a single-day architecture review to a multi-month embedded advisory role. See \"Who We Work With\" above — we scope the engagement to the client, not the other way around.",
-  },
-  {
-    question: "What if we only need one of the two disciplines?",
-    answer:
-      "That's fine — plenty of engagements only need product/delivery or only need architecture. You get direct access to whichever specialist fits, not a bundled package you don't need.",
-  },
-  {
-    question: "Do you work remotely, or only in person?",
-    answer:
-      "Remote-first by default, with on-site work available where the engagement calls for it.",
-  },
-];
+import { useTranslations } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <section id="faq" class="relative px-6 py-24 border-b border-[#dde1e6]">
   <div class="mx-auto max-w-3xl">
     <div class="reveal mb-16">
-      <h2 class="eyebrow text-xs font-semibold uppercase text-[#8a6d3b] mb-3">FAQ</h2>
-      <h3 class="font-serif-heading text-2xl sm:text-4xl text-[#16202b]">Common questions.</h3>
+      <h2 class="eyebrow text-xs font-semibold uppercase text-[#8a6d3b] mb-3">{t.faq.eyebrow}</h2>
+      <h3 class="font-serif-heading text-2xl sm:text-4xl text-[#16202b]">{t.faq.h2}</h3>
     </div>
     <div class="reveal flex flex-col divide-y divide-[#dde1e6] border-t border-b border-[#dde1e6]">
-      {faqs.map((item) => (
+      {t.faq.items.map((item) => (
         <details class="group py-5">
           <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-serif-heading text-base text-[#16202b]">
             {item.question}

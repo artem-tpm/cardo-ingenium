@@ -1,10 +1,21 @@
 ---
+import { useTranslations } from "../i18n/utils";
+import type { Lang } from "../i18n/ui";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
 const links = [
-  { href: "#how-we-work", label: "How We Work" },
-  { href: "#services", label: "Services" },
-  { href: "#engagement", label: "Engagement" },
-  { href: "#team", label: "Team" },
-  { href: "#contact", label: "Contact" },
+  { href: "#how-we-work", label: t.nav.howWeWork },
+  { href: "#services", label: t.nav.services },
+  { href: "#engagement", label: t.nav.engagement },
+  { href: "#team", label: t.nav.team },
+  { href: "#contact", label: t.nav.contact },
 ];
 ---
 
@@ -18,19 +29,20 @@ const links = [
       </svg>
       <span class="font-serif-heading text-sm tracking-[0.16em] uppercase text-white">Cardo Ingenium</span>
     </a>
-    <ul class="hidden sm:flex items-center gap-8 text-sm text-[#a9b2bc]">
+    <ul class="hidden lg:flex items-center gap-8 text-sm text-[#a9b2bc]">
       {links.map((link) => (
         <li>
           <a href={link.href} class="hover:text-white transition-colors">{link.label}</a>
         </li>
       ))}
     </ul>
-    <div class="hidden sm:flex items-center">
+    <div class="hidden lg:flex items-center gap-4">
+      <LanguageSwitcher lang={lang} />
       <a
         href="#contact"
         class="inline-flex items-center gap-2 rounded-sm bg-[#c9a86a] px-4 py-2 text-sm font-medium text-[#16202b] hover:bg-[#d9bd85] transition-colors"
       >
-        Start a conversation
+        {t.nav.cta}
       </a>
     </div>
     <button
@@ -38,7 +50,7 @@ const links = [
       type="button"
       aria-label="Toggle menu"
       aria-expanded="false"
-      class="sm:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 text-white"
+      class="lg:hidden inline-flex items-center justify-center w-11 h-11 -mr-2 text-white"
     >
       <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -51,7 +63,7 @@ const links = [
       </svg>
     </button>
   </nav>
-  <div id="mobile-menu" class="hidden sm:hidden border-t border-white/10 bg-[#16202b]">
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-white/10 bg-[#16202b]">
     <ul class="flex flex-col px-6 py-4 text-sm text-[#a9b2bc]">
       {links.map((link) => (
         <li>
@@ -59,12 +71,16 @@ const links = [
         </li>
       ))}
     </ul>
+    <div class="px-6 pb-4">
+      <span class="block mb-2 text-xs uppercase tracking-wide text-[#a9b2bc]/70">Language</span>
+      <LanguageSwitcher lang={lang} variant="mobile" />
+    </div>
     <div class="px-6 pb-6">
       <a
         href="#contact"
         class="flex items-center justify-center rounded-sm bg-[#c9a86a] px-4 py-3 text-sm font-medium text-[#16202b] hover:bg-[#d9bd85] transition-colors"
       >
-        Start a conversation
+        {t.nav.cta}
       </a>
     </div>
   </div>
